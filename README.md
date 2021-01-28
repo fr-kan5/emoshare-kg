@@ -1,24 +1,42 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column          | Type             | Options              |
+|-----------------|------------------|----------------------|
+| email           | string           | null: false          |
+| password        | string           | null: false          |
+| nickname        | string           | null: false          |
+| profile         | text             |                      |
 
-* Ruby version
+### Association
 
-* System dependencies
+* has_many :albums
+* has_many :comments
 
-* Configuration
+## albums table
 
-* Database creation
+| Column          | Type             | Options              |
+|-----------------|------------------|----------------------|
+| title           | string           | null: false          |
+| caption         | text             | null: false          |
+| user            | references       | foreign_key: true    |
+| image           |                                         |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :comments
 
-* Services (job queues, cache servers, search engines, etc.)
+## comments table
 
-* Deployment instructions
+| Column          | Type            | Options               |
+|-----------------|-----------------|-----------------------|
+| text            | text            | null: false           |
+| album           | references      | foreign_key: true     |
+| user            | references      | foreign_key: true     |
 
-* ...
+### Association
+
+- belongs_to :album
+- belongs_to :user
