@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   def index
+    @albums = Album.includes(:user)
   end
 
   def new
