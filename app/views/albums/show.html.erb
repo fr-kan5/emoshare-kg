@@ -1,0 +1,27 @@
+<main class="main">
+  <div class="inner">
+    <div class="album__wrapper">
+      <p class="album__hedding">
+        <%= @album.title %>
+      </p>
+      <%= link_to "by #{@album.user.nickname} ", root_path, class: :album__user %>
+      <% if current_user == @album.user%>
+        <div class="album__manage">
+          <%= link_to "編集する", edit_album_path(@album), class: :album__btn %>
+          <%= link_to "削除する", album_path(@album), method: :delete, class: :album__btn %>
+        </div>
+      <% end %>
+      <div class="album__image">
+        <%= image_tag @album.image %>
+      </div>
+      <div class="album__body">
+        <div class="album__detail">
+          <p class="detail__title">キャプション</p>
+          <p class="detail__message">
+            <%= @album.caption %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
