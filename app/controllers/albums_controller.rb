@@ -19,6 +19,8 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @album.comments.includes(:user)
   end
 
   def edit
