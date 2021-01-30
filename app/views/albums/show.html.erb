@@ -5,10 +5,12 @@
         <%= @album.title %>
       </p>
       <%= link_to "by #{@album.user.nickname} ", root_path, class: :album__user %>
+      <% if current_user == @album.user%>
         <div class="album__manage">
           <%= link_to "編集する", root_path, class: :album__btn %>
           <%= link_to "削除する", root_path, class: :album__btn %>
         </div>
+      <% end %>
       <div class="album__image">
         <%= image_tag @album.image %>
       </div>
