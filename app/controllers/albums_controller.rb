@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :album_find, except: [:index, :new, :create]
+
   def index
     @albums = Album.includes(:user)
   end
@@ -28,6 +29,14 @@ class AlbumsController < ApplicationController
       redirect_to album_path(@album)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @album.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
     end
   end
 
