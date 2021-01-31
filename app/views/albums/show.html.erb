@@ -4,7 +4,7 @@
       <p class="album__hedding">
         <%= @album.title %>
       </p>
-      <%= link_to "by #{@album.user.nickname} ", root_path, class: :album__user %>
+      <%= link_to "by #{@album.user.nickname} ", user_path(@album.user), class: :album__user %>
       <% if current_user == @album.user%>
         <div class="album__manage">
           <%= link_to "編集する", edit_album_path(@album), class: :album__btn %>
@@ -38,7 +38,7 @@
             <% @comments.each do |comment| %>
             <li class="comments_list">
               <%= comment.text %>
-              <%= link_to comment.user.nickname, root_path, class: :comment_user %>
+              <%= link_to "（#{comment.user.nickname}）", user_path(comment.user), class: :comment_user %>
             </li>
             <% end %>
         </ul>
