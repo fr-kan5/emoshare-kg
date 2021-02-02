@@ -47,7 +47,7 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:title, :caption, :image).merge(user_id: current_user.id)
+    params.require(:album).permit(:title, :caption, images: []).merge(user_id: current_user.id)
   end
 
   def album_find

@@ -1,5 +1,7 @@
 <div class="card">
-  <%= link_to image_tag(album.image, class: :card__img ), album_path(album) %>
+  <% album.images.each do |image| %>
+    <%= link_to image_tag(album.images[0], class: :card__img ), album_path(album) %>
+  <% end %>
   <div class="card__body">
     <%= link_to album.title, album_path(album), class: :card__title%>
     <p class="card__summary">
