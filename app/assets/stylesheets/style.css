@@ -100,6 +100,11 @@ a {
   margin: 10px 0;
 }
 
+#image-list{
+  display: flex;
+  overflow: scroll;
+}
+
 .actions{
   margin-bottom: 40px;
 }
@@ -148,8 +153,11 @@ a {
 }
 .card__img {
   margin-bottom: 16px;
-  width: 300%;
+  max-width: 300px;
   height: 300px;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
 }
 .card__title {
   display: block;

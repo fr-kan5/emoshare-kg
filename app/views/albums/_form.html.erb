@@ -11,14 +11,15 @@
 
   <div class="field">
     <%= f.label :images, "アルバムの画像" %><br />
-    <%= f.file_field :images, multiple: true %>
+    <%= f.file_field :images, class: :form__img, multiple: true %>
   </div>
+
+  <div id="image-list"></div>
 
   <div class="actions">
     <%= f.submit "シェアする", class: :form__btn  %>
   </div>
 
-  <div id="image-list"></div>
 <% end %>
 
 <% @album.images.each do |image| %>
