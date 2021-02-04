@@ -10,11 +10,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :image, "アルバムの画像" %><br />
-    <%= f.file_field :image %>
+    <%= f.label :images, "アルバムの画像" %><br />
+    <%= f.file_field :images, class: :form__img, multiple: true %>
   </div>
+
+  <div id="image-list"></div>
 
   <div class="actions">
     <%= f.submit "シェアする", class: :form__btn  %>
   </div>
+
+<% end %>
+
+<% @album.images.each do |image| %>
+  <%= image_tag image, class: :card__img %>
 <% end %>

@@ -11,8 +11,10 @@
           <%= link_to "削除する", album_path(@album), method: :delete, class: :album__btn %>
         </div>
       <% end %>
-      <div class="album__image">
-        <%= image_tag @album.image %>
+      <div class="album__images">
+        <% @album.images.each do |image| %>
+          <%= image_tag image, class: 'images' %>
+        <% end %>
       </div>
       <div class="album__body">
         <div class="album__detail">
